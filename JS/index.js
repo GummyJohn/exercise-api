@@ -2,7 +2,8 @@ import { getData } from "./api.js";
 import { 
   header,
   search,
-  muscleDisplay
+  muscleDisplay,
+  singleBoxes,
 } from "./statics.js";
 
 const body = document.querySelector('#body')
@@ -10,34 +11,30 @@ const body = document.querySelector('#body')
 body.append(header())
 body.append(search())
 body.append(muscleDisplay())
+// body.append(typesSearch())
+// body.append(typesDisplay())
+
 
 const input = document.querySelector('.search-bar');
-console.log(input)
+const displayContainer = document.querySelector('.display-container');
+const button = document.querySelector('.button')
 
-async function init(){
-  let list;
+// const typeInput = document.querySelector('.type-search-bar');
+// const typeDisplayContainer = document.querySelector('.type-display-container');
 
-  input.addEventListener('keypress' , () => {
-    if(event.keyCode === 13){
-      console.log(input.value)
-    }
-  })
+input.addEventListener('keypress', async () => {
+  if(event.keyCode === 13){
+    console.log(input.value)
+    let getWorkouts = await getData(input.value);
   
+    for(let i = 0; i < getWorkouts.length; i++){
+      console.log(i)
+      displayContainer.append(singleBoxes(getWorkouts[i]));
+    }
 
-}
+  }
+})
 
-init()
-
-
-function singleBoxes({name, instructions, muscle, difficulty}){
-  const box = document.createElement('div');
-  box.innerHTML = `
-    <div class='exercise-content'>
-      <h2 class= 'exercise-title'>${name}</h2>
-      
-      <p class='muscle-target'> Muscle: ${muscle}</p>
-      <p class='difficulty'> Difficulty: ${difficulty}</p>
-      <p class='instructions'> Captial: ${instructions}</p>         
-    </div>
-  `
-}
+button.addEventListener('click', () => {
+  console.log('refreshed')
+})

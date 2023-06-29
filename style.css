@@ -1,12 +1,40 @@
 :root{
   --primary-color: rgb(102, 178, 255);
-  --white: white;
+  --navy: rgb(0, 0, 102);
+  --red: red;
 }
 
 #body{
   padding: 0;
   margin: 0 auto;
   max-width: 1800px;
+}
+
+.red{
+  color: var(--red);
+  font-size: 1.5rem;
+}
+
+.navy{
+  color: var(--navy);
+  font-size: 1.5rem;
+}
+
+.p-color{
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.button{
+  border: none;
+  height: 100%;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+}
+
+.button:hover{
+  cursor: pointer;
 }
 
 .header{
@@ -39,13 +67,15 @@
   width: 400px;
 }
 
-.search-bar{
+.search-bar,
+.type-search-bar{
   border: none;
   padding: .9rem;
   width: 100%;
 }
 
-.search-bar:focus{
+.search-bar:focus,
+.type-search-bar:focus{
   outline: none;
 }
 
@@ -68,8 +98,31 @@
   cursor: pointer;
 }
 
-.display-container{
-  border: 1px solid black;
-  width: 90%;
+.display-container,
+.type-display-container{
   margin: 1.5rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1.5rem;
+  padding: 1rem;
+}
+
+.type-display-container{
+  border: none;
+}
+
+.exercise-content{
+  border: 1px solid var(--primary-color);
+  border-radius: 1.5rem;
+  padding: .5rem 1rem;
+}
+
+
+.instructions{
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.exercise-content{
+  height: 100%;
 }
