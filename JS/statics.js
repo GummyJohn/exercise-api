@@ -46,7 +46,7 @@ function search(){
   const exampleContainer = document.createElement('div');
   exampleContainer.className = 'example-container';
   
-  let exArr = ['ex.','abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'hamstrings', 'lats'];
+  let exArr = ['ex.','abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'lower_back', 'lats'];
   
   for(let i = 0; i < exArr.length; i++){
     exampleContainer.append(PCreate('exercise', exArr[i]));
@@ -142,9 +142,9 @@ function typesDisplay(){
 }
 
 //Create individual Container
-export function singleBoxes({name, instructions, muscle, difficulty}){
+export function singleBoxes({name, instructions, muscle, difficulty}, type){
   const box = document.createElement('div');
-  box.className = 'box-container';
+  box.className = `box-container-${type}`;
   box.innerHTML = `
     <div class='exercise-content'>
       <h2 class= 'exercise-title navy'>${name}</h2>
