@@ -3,7 +3,7 @@ export async function getData(text){
 
   const options = {
     headers: {
-      'X-RapidAPI-Key': '50d5c6c356mshb8a1720a44e3e1cp13b881jsnb7e170ed2fb6',
+      'X-RapidAPI-Key': 'use your own API-KEY',
       'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
     }
   };
@@ -19,7 +19,7 @@ export async function getTypes(text){
 
 const options = {
 	headers: {
-		'X-RapidAPI-Key': '50d5c6c356mshb8a1720a44e3e1cp13b881jsnb7e170ed2fb6',
+		'X-RapidAPI-Key': 'use your own API-KEY',
 		'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
 	}
 };
