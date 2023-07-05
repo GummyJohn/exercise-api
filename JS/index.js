@@ -85,10 +85,14 @@ const typeInput = document.querySelector('.type-search-bar');
 
 typeInput.addEventListener('keypress', async () => {
   if(event.keyCode === 13){
-    let getTypesData = await getTypes(spaceReplace(input.value));
+    let getTypesData = await getTypes(spaceReplace(typeInput.value));
     
-    for(let i = 0; i < getTypesData.length; i++){
-      typesDispayContainer.append(singleBoxes(getTypesData[i],'type'));
+    if(getTypesData.length === 0){
+      alert('COULDN"T FIND TYPE OF WORKOUT')
+    }else{
+      for(let i = 0; i < getTypesData.length; i++){
+        typesDispayContainer.append(singleBoxes(getTypesData[i],'type'));
+      }
     }
     
     typeInput.value = '';
@@ -101,5 +105,4 @@ typeInput.addEventListener('keypress', async () => {
       typeContents[i].classList.add('hide');
     }
   })
-
 })
