@@ -3,8 +3,8 @@ export async function getData(text){
 
   const options = {
 	headers: {
-	'X-RapidAPI-Key': 'use your own API-KEY',
-	'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
+		'X-RapidAPI-Key': 'use your own API-KEY',
+		'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
 	}
   };
   
