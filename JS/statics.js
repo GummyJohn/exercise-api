@@ -46,7 +46,7 @@ function search(){
   const exampleContainer = document.createElement('div');
   exampleContainer.className = 'example-container';
   
-  let exArr = ['ex.','abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'lower_back', 'lats'];
+  let exArr = ['ex.','abdominals', 'biceps', 'calves', 'chest', 'forearms', 'glutes', 'lower back', 'middle back', 'lats'];
   
   for(let i = 0; i < exArr.length; i++){
     exampleContainer.append(PCreate('exercise', exArr[i]));
@@ -120,7 +120,7 @@ function typesSearch(){
   const typesExampleContainer = document.createElement('div');
   typesExampleContainer.className = 'example-container';
   
-  let exArr = ['ex.','cardio', 'olympic_weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman'];
+  let exArr = ['ex.','cardio', 'olympic weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman'];
   
   for(let i = 0; i < exArr.length; i++){
     typesExampleContainer.append(PCreate('exercise', exArr[i]));
