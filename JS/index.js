@@ -58,8 +58,13 @@ input.addEventListener('keypress', async () => {
   if(event.keyCode === 13){
     let getWorkouts = await getData(spaceReplace(input.value));
     
-    for(let i = 0; i < getWorkouts.length; i++){
-      displayContainer.append(singleBoxes(getWorkouts[i],'muscle'));
+    if(getWorkouts.length === 0){
+      alert('COUlDN"T FIND MUSCLE')
+    }
+    else{
+      for(let i = 0; i < getWorkouts.length; i++){
+        displayContainer.append(singleBoxes(getWorkouts[i],'muscle'));
+      }
     }
     
     input.value = '';
@@ -96,5 +101,4 @@ typeInput.addEventListener('keypress', async () => {
       typeContents[i].classList.add('hide');
     }
   })
-
 })
