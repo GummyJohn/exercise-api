@@ -9,6 +9,14 @@ import {
   tabs,
 } from "./statics.js";
 
+function spaceReplace(string){
+  if(string.includes(' ')){
+    return string.replace(' ', '_');
+  }else{
+    return string;
+  }
+}
+
 const body = document.querySelector('#body')
 const innerBody = document.createElement('div');
 innerBody.className = 'inner-body';;
@@ -48,7 +56,7 @@ tab2.addEventListener('click', () => {
 
 input.addEventListener('keypress', async () => {
   if(event.keyCode === 13){
-    let getWorkouts = await getData(input.value);
+    let getWorkouts = await getData(spaceReplace(input.value));
     
     for(let i = 0; i < getWorkouts.length; i++){
       displayContainer.append(singleBoxes(getWorkouts[i],'muscle'));
@@ -67,13 +75,12 @@ input.addEventListener('keypress', async () => {
 
 })
 
-
 // TYPES TABS
 const typeInput = document.querySelector('.type-search-bar');
 
 typeInput.addEventListener('keypress', async () => {
   if(event.keyCode === 13){
-    let getTypesData = await getTypes(typeInput.value);
+    let getTypesData = await getTypes(spaceReplace(input.value));
     
     for(let i = 0; i < getTypesData.length; i++){
       typesDispayContainer.append(singleBoxes(getTypesData[i],'type'));
