@@ -40,7 +40,7 @@ const tab2 = document.querySelector('.types-tab');
 const muscleContent = document.querySelector('.content-box')
 const typeContent = document.querySelector('.content-box-two');
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   tab1.click();
 })
 
@@ -54,10 +54,24 @@ tab2.addEventListener('click', () => {
   muscleContent.classList.add('hide');
 })
 
+const muslcePhrase = {
+  trapezius : 'traps',
+  abs : 'abdominals',
+  latissimus : 'lats',
+  quads : 'quadriceps'
+}
+
+
 input.addEventListener('keypress', async () => {
   if(event.keyCode === 13){
     let getWorkouts = await getData(spaceReplace(input.value));
-    
+   
+    for(let key in muslcePhrase){
+      if(input.value.toLowerCase() === key){
+        getWorkouts = await getData(spaceReplace(muslcePhrase[key]));
+      }
+    }
+
     if(getWorkouts.length === 0){
       alert('COUlDN"T FIND MUSCLE')
     }
@@ -66,7 +80,7 @@ input.addEventListener('keypress', async () => {
         displayContainer.append(singleBoxes(getWorkouts[i],'muscle'));
       }
     }
-    
+
     input.value = '';
   }
   
@@ -85,10 +99,14 @@ const typeInput = document.querySelector('.type-search-bar');
 
 typeInput.addEventListener('keypress', async () => {
   if(event.keyCode === 13){
-    let getTypesData = await getTypes(spaceReplace(input.value));
+    let getTypesData = await getTypes(spaceReplace(typeInput.value));
     
-    for(let i = 0; i < getTypesData.length; i++){
-      typesDispayContainer.append(singleBoxes(getTypesData[i],'type'));
+    if(getTypesData.length === 0){
+      alert('COULDN"T FIND TYPE OF WORKOUT')
+    }else{
+      for(let i = 0; i < getTypesData.length; i++){
+        typesDispayContainer.append(singleBoxes(getTypesData[i],'type'));
+      }
     }
     
     typeInput.value = '';
